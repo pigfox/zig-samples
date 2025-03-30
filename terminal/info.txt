@@ -1,0 +1,58 @@
+Zig Terminal Application Example
+================================
+
+How to Run
+----------
+1. Save the code as `terminal.zig`
+2. Compile and run: `zig run terminal.zig`
+
+Expected Output
+---------------
+Terminal Menu:
+1. Say Hello
+2. Add Numbers
+3. Exit
+Enter choice (1-3):
+
+[User enters 1]:
+Hello, World!
+
+[User enters 2]:
+Enter first number: 5.5
+Enter second number: 3.2
+Result: 8.7
+
+[User enters 3]:
+Goodbye!
+
+Explanation
+-----------
+This terminal application:
+1. Main Loop:
+   - Displays a menu with 3 options
+   - Reads user input from stdin
+   - Processes choice in a switch statement
+2. Features:
+   - Option 1: Prints "Hello, World!"
+   - Option 2: Adds two floating-point numbers
+   - Option 3: Exits the program
+3. Input Handling:
+   - Uses a fixed buffer for reading
+   - Trims whitespace from input
+   - Handles invalid input gracefully
+
+Notes
+-----
+- Uses std.io for input/output
+- Error handling with `try` for all I/O operations
+- Simple interactive loop until exit
+- Buffer size is 100 bytes (adjustable)
+- Ctrl+D/Ctrl+Z ends input on Unix/Windows
+
+Enhancements
+------------
+Could be extended with:
+- More menu options
+- Input validation
+- Command history
+- Color output
