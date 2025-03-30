@@ -1,0 +1,47 @@
+Zig Multithreaded HTTP Client Instructions
+==========================================
+
+How to Run
+----------
+1. Save the code as `client.zig`
+2. Make it executable: `chmod +x client.zig` (on Unix-like systems)
+3. Ensure the server is running (`zig run server.zig` in another terminal)
+4. Run the client: `zig run client.zig`
+
+Expected Output
+---------------
+Output will vary based on thread IDs from the server, but might look like:
+Thread #0 received: HTTP/1.1 200 OK
+Content-Type: text/plain
+Content-Length: 24
+
+Hello from thread #1234!
+Thread #1 received: HTTP/1.1 200 OK
+Content-Type: text/plain
+Content-Length: 24
+
+Hello from thread #1235!
+[similar output for threads #2-4]
+
+Explanation
+-----------
+This code creates a multithreaded HTTP client that:
+1. Setup:
+   - Added shebang line for direct execution
+   - Creates 5 threads (configurable via thread_count)
+   - Stores threads in an array for later joining
+2. Request Handling:
+   - Each thread connects to 127.0.0.1:8080
+   - Sends a simple HTTP GET request
+   - Reads and prints the server's response
+3. Synchronization:
+   - Main thread waits for all requests to complete using join()
+   - Each thread identifies itself in output with its number
+
+Notes
+-----
+- Run the server first in one terminal
+- Then run this client in another terminal
+- The client makes 5 concurrent requests
+- Each response shows the server's thread ID
+- Output order may vary due to thread scheduling

@@ -1,0 +1,36 @@
+Zig Multithreaded HTTP Server Instructions
+==========================================
+
+How to Run
+----------
+1. Save the code as `server.zig`
+2. Compile and run: `zig run server.zig`
+3. Test with multiple simultaneous requests:
+   - Open multiple browser tabs to `http://127.0.0.1:8080`
+   - Or use curl: `curl http://127.0.0.1:8080` in multiple terminals
+
+Expected Output
+---------------
+Server console might show:
+Server listening on http://127.0.0.1:8080
+Spawned thread #1, total active: 1
+Spawned thread #2, total active: 1
+Spawned thread #3, total active: 1
+
+Client responses will be like:
+Hello from thread #1234!
+
+Explanation
+-----------
+This code creates a multithreaded HTTP server that:
+1. Thread Spawning:
+   - Uses std.Thread.spawn() for each new connection
+   - Configures threads with default settings
+   - Passes connection stream to handler function
+2. Thread Management:
+   - Detaches threads to run independently
+   - Tracks thread count for demonstration
+3. Dynamic Response:
+   - Generates response with thread ID
+   - Uses page_allocator for memory management
+   - Properly frees allocated memory

@@ -1,0 +1,8 @@
+const std = @import("std"); - Imports the Zig standard library
+pub fn main() !void - Defines the public main function that returns no value (void) and may return an error (!)
+const stdout = std.io.getStdOut().writer(); - Gets the standard output writer
+try stdout.print("Hello, World!\n", .{}); - Prints "Hello, World!" followed by a newline, where try handles any potential errors and .{} is an empty argument tuple
+To run this:
+
+Save it as hello.zig
+Compile and run with: zig run hello.zig

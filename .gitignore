@@ -1,2 +1,8 @@
 .zig-cache/
 zig-out/
+.idea/libraries/
+.idea/misc.xml
+.idea/modules.xml
+.idea/zig-samples.iml
+.idea/zigbrains.xml
+Zig.iml

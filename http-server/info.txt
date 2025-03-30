@@ -1,0 +1,40 @@
+How to Run
+----------
+1. Save this code as `server.zig`
+2. Compile and run: `zig run server.zig`
+3. Access via browser at: `http://127.0.0.1:8080`
+   or use curl: `curl http://127.0.0.1:8080`
+
+Explanation
+-----------
+This code creates a basic HTTP server that:
+1. Memory Management:
+   - Uses GeneralPurposeAllocator for dynamic memory allocation
+   - Properly cleans up with defer statements
+
+2. Network Setup:
+   - Listens on localhost (127.0.0.1) port 8080
+   - Enables address reuse for easier restarting
+   - Prints startup message to console
+
+3. Connection Handling:
+   - Runs infinite loop to accept connections
+   - Processes each connection in handleConnection()
+   - Reads HTTP request into 1024-byte buffer
+   - Sends simple "Hello, World!" response with proper HTTP headers
+
+Key Features
+------------
+- Error handling using Zig's `try` keyword
+- Resource cleanup with `defer`
+- Basic HTTP protocol compliance
+- Simple single-threaded design
+
+Limitations
+-----------
+This is a minimal example. A production server should add:
+- Concurrent connection handling (threads/async)
+- Proper request parsing
+- Error page handling
+- Configuration options
+- Security features
