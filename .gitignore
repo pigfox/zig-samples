@@ -6,3 +6,4 @@ zig-out/
 .idea/zig-samples.iml
 .idea/zigbrains.xml
 Zig.iml
+.idea/
